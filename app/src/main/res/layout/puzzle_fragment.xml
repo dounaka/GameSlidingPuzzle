@@ -1,14 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.game.slidingpuzzle.PuzzleFragment">
 
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Hello"/>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="viewModel" type="com.game.slidingpuzzle.PuzzleViewModel"/>
+    </data>
+    <LinearLayout
+            android:layout_width="match_parent" android:orientation="vertical"
+            android:layout_height="match_parent" android:padding="@dimen/space_medium"
+            tools:context="com.game.slidingpuzzle.PuzzleFragment">
 
-</FrameLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <Button android:text="@string/new_game" android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="@{() -> viewModel.startNewGame(5)}"
+
+            />
+            <Button android:text="@string/reset" android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+
+            <Button android:text="@string/undo" android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+            <Button android:text="@string/redo" android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+
+        </LinearLayout>
+
+
+        <TextView android:layout_gravity="center_horizontal" android:layout_margin="@dimen/space_big"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Puzzle Fragment - 9x9"/>
+
+
+        <ProgressBar android:layout_width="match_parent" android:layout_height="wrap_content"
+                     style="@style/Widget.AppCompat.ProgressBar.Horizontal" android:max="100" android:progress="10"
+                     android:progressTint="#8BC34A"/>
+
+        <view android:id="@+id/puzzleView" app:drawPuzzle="@{viewModel.puzzle}"
+              class="com.game.slidingpuzzle.ui.PuzzleView" android:layout_width="match_parent"
+              android:layout_height="match_parent"/>
+    </LinearLayout>
+</layout>

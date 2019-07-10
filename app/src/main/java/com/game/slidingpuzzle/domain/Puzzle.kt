@@ -6,7 +6,10 @@ class Puzzle() {
 
     var emptyPiece: Piece? = null
 
-    fun startNewGame(dimension: Int) {
+    var dimension:Int =0
+
+    fun startNewGame(dim: Int) {
+        dimension = dim
         if (dimension > 9 || dimension < 2) throw IllegalArgumentException(ERROR_INVALID_DIMENSION)
         if (pieces.isNotEmpty()) pieces.clear()
         val matrice = mutableListOf<Int>()

@@ -9,7 +9,7 @@ class PuzzleViewModel : ViewModel() {
 
     fun startNewGame(dim:Int) {
         val pzle = Puzzle()
-        pzle.startNewGame(4)
+        pzle.startNewGame(dim)
         puzzle.postValue(pzle)
     }
 }

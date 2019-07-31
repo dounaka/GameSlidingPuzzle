@@ -7,5 +7,5 @@ A custom view for the puzzle, the image is splitted in many tiles
 
 GestureDetectorCompat is used for the touch detection & interpretation 
 
-(i) Project written in 12 hours approximatively
+(i) Project written in 12 hours approximatively to show my skills :)
 
